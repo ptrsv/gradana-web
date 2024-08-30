@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const moment = require('moment')
 
 const Dashboard = () => {
   const [name, setName] = useState('User');
@@ -78,7 +79,7 @@ const Dashboard = () => {
             <tbody>
               {transactions.map((trn, index) => (
                 <tr key={index} className="hover:bg-gray-100">
-                  <td className="py-2 px-4 border-b border-gray-200">{trn.transaction_date}</td>
+                  <td className="py-2 px-4 border-b border-gray-200">{moment(trn.transaction_date).format('DD-MM-YYYY HH:mm:ss')}</td>
                   <td className={`py-2 px-4 border-b border-gray-200 text-right ${trn.amount < 0 ? 'text-red-500' : 'text-green-500'}`}>
                     {trn.amount < 0 ? '-' : '+'}{currencyFormating(trn.amount)}
                   </td>
