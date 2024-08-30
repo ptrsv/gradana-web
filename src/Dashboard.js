@@ -67,6 +67,7 @@ const Dashboard = () => {
           <p className="text-lg text-gray-600 mt-2">Current Balance: <span className="font-bold">{currencyFormating(currBalance)}</span></p>
         </div>
 
+        {transactions && transactions.length > 0 ? (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Top Up History</h3>
           <table className="min-w-full bg-white">
@@ -88,6 +89,7 @@ const Dashboard = () => {
             </tbody>
           </table>
         </div>
+        ) : <span>Belum ada transaksi top up</span>}
       </div>
     </div>
   );
